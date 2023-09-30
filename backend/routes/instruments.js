@@ -196,7 +196,6 @@ wss.on('connection', (ws) => {
       const { email } = user;
       console.log(email);
       const jsonData = await User.findOne({ email });
-
       // Extract the access token
       const { accessToken, apiKey } = jsonData.BrokerList.find(broker => broker.broker === "Zerodha");
       const access_token = accessToken;
@@ -208,7 +207,7 @@ wss.on('connection', (ws) => {
         const ticker = new KiteTicker({ api_key, access_token });
         
         function onTicks(ticks) {
-          // console.log("Ticks", ticks.length);
+          console.log("Ticks", ticks.length);
           ws.send(JSON.stringify(ticks));
           // const instrumentTokens = clientInstrumentMap.get(ws);
           // if (instrumentTokens && instrumentTokens.includes(ticks[0].instrument_token)) {

@@ -499,7 +499,7 @@ useEffect(()=>{
 },[selectedOption1,selectedOption4,selectedOption5,selectedOption3])
 
   useEffect(() => {
-    const socket = new WebSocket(`${SOCKET_API_URL}/instruments`);
+    const socket = new WebSocket(`${SOCKET_API_URL}`);
 
     socket.onopen = () => {
       console.log('WebSocket connected test');
