@@ -518,7 +518,7 @@ useEffect(()=>{
       
       const ticks = JSON.parse(event.data);
 
-    // console.log(ticks,"ticks")
+    console.log(ticks,"ticks")
       setArrayOfToken((prevArrayOfTokens) => {
 
         const watchList = [...prevArrayOfTokens]; 
