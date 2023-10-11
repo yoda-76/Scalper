@@ -19,6 +19,7 @@ const stopLossOrder=require("./routes/stopLossOrder")
 const exitRouter=require("./routes/exit")
 const exitAllRouter=require("./routes/exitAll")
 const updatePositionsRouter=require("./routes/updatePositions")
+const path=require('path')
 
 
 const User = require("./models/userDetails"); // Import the user schema from userDetails.js
@@ -45,6 +46,26 @@ mongoose
   })
   .catch((e) => console.log(e));
 
+
+
+  
+const _dirname = path.dirname("")
+const buildPath = path.join(_dirname  , "../loginPage/dist");
+
+app.use(express.static(buildPath))
+
+app.get("/*", function(req, res){
+
+    res.sendFile(
+        path.join(__dirname, "../loginPage/dist/index.html"),
+        function (err) {
+          if (err) {
+            res.status(500).send(err);
+          }
+        }
+      );
+
+})
 
 
   //Routes
